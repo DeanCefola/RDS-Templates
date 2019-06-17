@@ -1036,7 +1036,7 @@ else {
                 Write-Log 1 "Current total number of user sessions: $HostpoolSessionCount" "Info"
                 Write-Log 1 "Current available session capacity is less than demanded user sessions, starting session host" "Info"
                 #running out of capacity, we need to start more VMs if there are any 
-                foreach ($sessionHost in $RDSessionHost) {
+                foreach ($sessionHosts in $RDSessionHost) {
 					$sessionHost = $sessionHosts.SessionHostname											
                     $VMName = $sessionHost.Split(".")[0]
                     $roleInstance = Get-AzureRmVM -Status | Where-Object { $_.Name.Contains($VMName) }
